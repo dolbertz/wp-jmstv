@@ -24,8 +24,7 @@ class DeJmstvPlugIn
         
         if ($this->checkBlockByUserAgent() || $this->checkBlockByIp()) {
             if ($this->checkBlockByTime()) {
-                include(dirname(realpath(__FILE__)) . '/../templates/blocked.php');
-                exit;
+                $this->displayProtestPage();
             }
         }
     }
@@ -63,6 +62,17 @@ class DeJmstvPlugIn
         $today = date('Y-m-d', current_time('timestamp'));
         
         return date('H:i:s', strtotime($today . ' ' . $value));
+    }
+    
+    protected function displayProtestPage()
+    {
+        if ($this->showPage) {
+            $url = site_url() . '?page_id=' . $this->showPage;
+            header('Location: ' . $url);
+        } else {
+            include(dirname(realpath(__FILE__)) . '/../templates/blocked.php');
+        }
+        exit;
     }
     
     protected function isWhitelisted()
