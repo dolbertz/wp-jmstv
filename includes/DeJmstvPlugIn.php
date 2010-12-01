@@ -21,9 +21,11 @@ class DeJmstvPlugIn
             return;
         }
         
-        if ($this->checkBlockByTime() || $this->checkBlockByUserAgent() || $this->checkBlockByIp()) {
-            include(dirname(realpath(__FILE__)) . '/../templates/blocked.php');
-            exit;
+        if ($this->checkBlockByUserAgent() || $this->checkBlockByIp()) {
+            if ($this->checkBlockByTime()) {
+                include(dirname(realpath(__FILE__)) . '/../templates/blocked.php');
+                exit;
+            }
         }
     }
     
@@ -81,7 +83,8 @@ class DeJmstvPlugIn
     protected function checkBlockByTime()
     {
         if (!get_option('jmstvBlockByTime')) {
-            return false;
+            // Always block for german users
+            return true;
         }
         
         $this->blockStartTime = get_option('jmstvBlockStartTime');
