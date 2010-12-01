@@ -22,7 +22,8 @@ if (is_admin()) {
     add_option('jmstvBlockByTime', 0);
     add_option('jmstvBlockStartTime', '06:00:00');
     add_option('jmstvBlockEndTime', '22:00:00');
-        
+    add_option('jmstvShowPage', 0);
+    
     add_action('admin_menu', array($deJmstvPlugIn, 'setupSettingsMenu'));
     add_action('admin_init', array($deJmstvPlugIn, 'registerSettings'));    
 }

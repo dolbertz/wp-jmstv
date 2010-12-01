@@ -12,6 +12,7 @@ class DeJmstvPlugIn
         $this->blockedByIp = false;
         $this->blockedByUserAgent = false;
         $this->blockedByTime = false;
+        $this->showPage = get_option('jmstvShowPage');
         
     }
     
@@ -52,22 +53,32 @@ class DeJmstvPlugIn
         register_setting('blockGroup', 'jmstvBlockByTime', 'intval');
         register_setting('blockGroup', 'jmstvBlockStartTime', array($this, 'sanitizeTime'));
         register_setting('blockGroup', 'jmstvBlockEndTime', array($this, 'sanitizeTime'));
+        
+        register_setting('blockGroup', 'jmstvShowPage', 'intval');
+        
     }
     
     public function sanitizeTime($value)
     {
-        return date('H:i:s', strtotime('2010-01-01 ' . $value));
+        $today = date('Y-m-d', current_time('timestamp'));
+        
+        return date('H:i:s', strtotime($today . ' ' . $value));
     }
     
     protected function isWhitelisted()
     {
         if (is_admin()) {
-	    // never block admin pages
-	    return true;
-	}
+	        // never block admin pages
+	        return true;
+	    }
 
         if (is_feed()) {
             // always deliver the feed
+            return true;
+        }
+        
+        if ($this->showPage && is_page($this->showPage)) {
+            // don't block the chosen protest page
             return true;
         }
         

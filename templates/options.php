@@ -31,7 +31,7 @@
         <h3>Sendepause statt kompletter Sperrung</h3>
         <table class="form-table">
             <tr valign="top">
-                <th scope="row">Sendepause einrichten<br />(Serverzeit: <?php echo date('H:i:s'); ?>)</th>
+                <th scope="row">Sendepause einrichten<br />(Serverzeit: <?php echo date('H:i:s', current_time('timestamp')); ?>)</th>
                 <td>
                     <input type="hidden" name="jmstvBlockByTime" value="0" />
                     <input type="checkbox" name="jmstvBlockByTime" value="1" 
@@ -61,6 +61,18 @@
                 oder nur während der Sendepause angezeigt!
             </p>
         <?php } ?>
+        <h3>Welche Protestseite</h3>
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row">Eigene Seite anzeigen<br />(Seiten-ID eintragen)</th>
+                <td>
+                    <input type="text" name="jmstvShowPage" value="<?php echo get_option('jmstvShowPage'); ?>" />
+                </td>
+            </tr>
+        </table>
+        <p>
+            In dieses Feld "0" eintragen, wenn die eingebaute Protestseite angezeigt werden soll.
+        </p>
         <p class="submit">
             <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
         </p>

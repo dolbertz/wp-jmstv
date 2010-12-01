@@ -57,6 +57,10 @@ h1,h2,h3,h4,h5,h6 { font-weight:normal; color:#111; }
             <li><a href="http://yuccatree.de/2010/11/jugendmedienschutz-staatsvertrag-bundeslander-beschliesen-juristisches-chaos-fur-blogger/">JMStV: Bundesländer beschließen juristisches Minenfeld für Blogger</a> (yuccatree.de)</li>
             <li><a href="http://t3n.de/news/neuer-jmstv-286977/">Lesepflicht für alle: 17 Fragen zum neuen JMStV</a> (t3n.de)
         </ul>
+        <p>
+            Grafik mit freundlicher Genehmigung von <a href="http://twitter.com/marax_de">@marax_de</a>.
+        </p>
+        
     </div>
 <body>
 </html>
