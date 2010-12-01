@@ -61,6 +61,11 @@ class DeJmstvPlugIn
     
     protected function isWhitelisted()
     {
+        if (is_admin()) {
+	    // never block admin pages
+	    return true;
+	}
+
         if (is_feed()) {
             // always deliver the feed
             return true;
@@ -138,7 +143,7 @@ class DeJmstvPlugIn
             return false;
         }
         
-        $ip = $_SERVER['SERVER_ADDR'];
+        $ip = $_SERVER['REMOTE_ADDR'];
         $response = $this->makeGetRequest('http://api.hostip.info/get_html.php?ip=' . $ip);
         
         if (stripos($response, 'germany') !== false) {
