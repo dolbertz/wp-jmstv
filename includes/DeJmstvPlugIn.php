@@ -115,7 +115,7 @@ class DeJmstvPlugIn
         
         $this->blockStartTime = get_option('jmstvBlockStartTime');
         $this->blockEndTime = get_option('jmstvBlockEndTime');
-        $now = date('H:i:s');
+        $now = date('H:i:s', current_time('timestamp'));
         if ($this->blockStartTime == $this->blockEndTime) {
             $this->blockedByTime = true;
             
