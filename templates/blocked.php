@@ -25,7 +25,7 @@ h1,h2,h3,h4,h5,h6 { font-weight:normal; color:#111; }
         <p>
             <?php if ($this->blockedByTime) { ?>
                 Du rufst diese Seite während der Sendepause (Serverzeit: <?php echo $this->blockStartTime; ?> - 
-                <?php echo $this->blockEndTime; ?>) auf. Es ist jetzt <?php echo date('H:i:s'); ?> Uhr 
+                <?php echo $this->blockEndTime; ?>) auf. Es ist jetzt <?php echo date('H:i:s', current_time('timestamp')); ?> Uhr 
                 (ebenfalls Uhrzeit auf dem Server)!
             <?php } ?>
             <?php if ($this->blockedByUserAgent) { ?>

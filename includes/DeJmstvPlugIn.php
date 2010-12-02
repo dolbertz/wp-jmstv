@@ -6,6 +6,7 @@ class DeJmstvPlugIn
     protected $blockedByTime;
     protected $blockedStartTime;
     protected $blockedEndTime;
+    protected $showPage;
     
     public function __construct()
     {

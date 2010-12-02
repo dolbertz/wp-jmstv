@@ -4,7 +4,7 @@
 Plugin Name: wp-JMStV
 Plugin URI: http://olbertz.de/blog/jmstv
 Description: Zeit- und IP-Sperre im Sinne des Jugendmedienschutzstaatsvertrag (JMStV)
-Version: 0.8
+Version: 0.8.5
 Author: Dirk Olbertz
 Author URI: http://olbertz.de
 License: GPL2
